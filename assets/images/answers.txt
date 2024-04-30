@@ -1,0 +1,66 @@
+Seccion 1.
+
+    ejercicio1.
+        
+        * Según el código, ¿El acceso a cada variable es posible?
+            True) Correcto!, el programa logra acceder a cada una de las variables ya que: 
+                - "blockVariable" se usa dentro del bloque if donde fue definida.
+                - "functionVariable" se usa dentro de la función donde fue definida.
+                - "globalVariable" puede ser accedida desde cualquier lugar del código.
+            False) Incorrecto... el programa logra acceder a cada una de las variables ya que: 
+                - "blockVariable" se usa dentro del bloque if donde fue definida.
+                - "functionVariable" se usa dentro de la función donde fue definida.
+                - "globalVariable" puede ser accedida desde cualquier lugar del código.
+        
+        * ¿Se podría acceder a todas las variables desde cualquier parte del código?
+            True) Incorrecto... Recuerda que:
+                - Las variables globales (globalVariable) son las únicas que pueden ser 
+                accedidas desde cualquier lugar del código.
+                - Las variables locales (functionVariable), declaradas dentro de funciones, 
+                solamente pueden ser accedidas desde dentro de la función donde fueron
+                declaradas.
+                - Las variables de bloque (blockVariable), declaradas dentro de un bloque de
+                código {}, solamente pueden ser accedidas desde dentro del bloque donde se
+                definieron.
+            False) Correcto! La tienes clara, recuerda que:
+                - Las variables globales (globalVariable) son las únicas que pueden ser 
+                accedidas desde cualquier lugar del código.
+                - Las variables locales (functionVariable), declaradas dentro de funciones, 
+                solamente pueden ser accedidas desde dentro de la función donde fueron
+                declaradas.
+                - Las variables de bloque (blockVariable), declaradas dentro de un bloque de
+                código {}, solamente pueden ser accedidas desde dentro del bloque donde se
+                definieron.
+
+    ejercicio 2.
+
+        * ¿La función console.log("Valor de a:",a) retornará "Valor de a:1"?
+            True) Incorrecto... Debido al hoisting, las variables declaradas con la palabra
+                reservada var se "elevan" y son inicializadas con "undefined". Al accederla
+                antes de su declaración el resultado es "Valor de a: undefined".
+            False) Correcto! Debido al hoisting, las variables declaradas con la palabra
+                reservada "var" y llamadas antes de su declaración son retornadas como
+                "undefined". El resultado es "Valor de a:undefined".
+
+        * ¿La función console.log("Valor de b:",b) retornará "Valor de b:2"?
+            True)Incorrecto... Debido al hoisting, las variables declaradas con la palabra 
+                reservada "let" también se "elevan" pero no son inicializadas sino que se 
+                mantienen en la temporal dead zone hasta su declaración. Al accederla antes
+                de su declaración el resultado es un error provocado por la temporal dead zone.
+            False) Correcto! Debido al hoisting, las variables declaradas con la palabra 
+                reservada "let" también se "elevan" pero no son inicializadas sino que se 
+                mantienen en la temporal dead zone hasta su declaración. Al accederla antes
+                de su declaración el resultado es un error provocado por la temporal dead zone.
+
+        *¿La función console.log("Valor de c:",c) retornará un error?
+            True)Correcto! Al igual que las variables declaradas con la palabra reservada let,
+                las constantes declaradas con la palabra reservada const se "elevan" por el
+                hoisting pero se mantienen en la temporal dead zone hasta su declaración,
+                por lo que retorna un error si es accedida antes de su declaración.
+
+            False) Incorrecto... Al igual que las variables declaradas con la palabra reservada let,
+                las constantes declaradas con la palabra reservada const se "elevan" por el
+                hoisting pero se mantienen en la temporal dead zone hasta su declaración,
+                por lo que retorna un error si es accedida antes de su declaración.
+
+

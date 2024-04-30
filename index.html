@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/show-code/prism.css">
+    <link rel="stylesheet" href="assets/styles.css">
+    <title>JS Test</title>
+</head>
+<body>
+    <header>
+        <h1>Test de fundamentos avanzados JS</h1>
+        <h2>Aciertos: <span id="scoreboard">0</span>/10</h2>
+        <p>Esta web está diseñada para aplicar y profundizar los conceptos avanzados de JavaScript.</p>
+        <h3>Objetivos:</h3>
+        <ul>
+            <li>Entender y aplicar conceptos fundamentales como el scope, hoisting y closures en JavaScript.</li>
+            <li>Distinguir entre funciones declaradas y expresadas, comprendiendo su comportamiento en relación con el hoisting.</li>
+            <li>Manejar la asincronía utilizando callbacks y promesas.</li>
+            <li>Comprender el funcionamiento del event loop y las web Apis.</li>
+        </ul>
+    </header>
+    <nav></nav>
+    <main>
+        <section class="section1"><!--Scope y hoisting-->
+            <h2>Sección 1: Scope y Hoisting.</h2>
+            <h3>Objetivo:</h3>
+            <p>Comprender y aplicar correctamente los conceptos de scope global, local y de bucle, así como el hoisting en JavaScript.</p>
+            <div class="challenge" id="challenge1">
+                <h3>Ejercicio 1: El quiz del Scope.</h3>
+                <p>Considera el siguiente código:</p>
+                <div class="code" id="code_challenge1">
+                    <pre>
+                        <code class="language-js">
+    // Global Scope
+    var globalVariable = "Soy una variable global.";
+
+    function testScope() {
+    // Function Scope
+    var functionVariable = "Soy una variable local.";
+
+    if (true) {
+        // Block Scope
+        let blockVariable = "Soy una variable de bloque.";
+        console.log("Dentro del bloque:", blockVariable);
+    }
+
+    console.log("Dentro de la función:", functionVariable);
+    }
+
+    console.log("Fuera de la función:", globalVariable);
+    testScope();
+                        </code>
+                    </pre>
+                </div>
+                <div class="question" id="question1">
+                    <p>Según el código, ¿El acceso a cada variable es posible?</p>
+                    <div class="answer_buttons">
+                        <button type="button" id="question1_btn_true">Verdadero</button>
+                        <button type="button" id="question1_btn_false">Falso</button>
+                    </div>
+                    <h5 id="question1_answer">Respuesta</h5>    
+                </div>
+                <div class="question" id="question2">
+                    <p>¿Se podría acceder a todas las variables desde cualquier parte del código?</p>
+                    <div class="answer_buttons">
+                        <button type="button" id="question2_btn_true">Verdadero</button>
+                        <button type="button" id="question2_btn_false">Falso</button>
+                    </div>
+                    <h5 id="question2_answer">Respuesta</h5>    
+                </div>
+            </div>
+            <div class="challenge" id="challenge1">
+                <h3>Ejercicio 2: El quiz del Scope.</h3>
+                <p>Considera el siguiente código:</p>
+                <div class="code" id="code_challenge1">
+                    <pre>
+                        <code class="language-js">
+    // Global Scope
+    var globalVariable = "Soy una variable global.";
+
+    function testScope() {
+    // Function Scope
+    var functionVariable = "Soy una variable local.";
+
+    if (true) {
+        // Block Scope
+        let blockVariable = "Soy una variable de bloque.";
+        console.log("Dentro del bloque:", blockVariable);
+    }
+
+    console.log("Dentro de la función:", functionVariable);
+    }
+
+    console.log("Fuera de la función:", globalVariable);
+    testScope();
+                        </code>
+                    </pre>
+                </div>
+                <div class="question" id="question1">
+                    <p>Según el código, ¿El acceso a cada variable es posible?</p>
+                    <div class="answer_buttons">
+                        <button type="button" id="question1_btn_true">Verdadero</button>
+                        <button type="button" id="question1_btn_false">Falso</button>
+                    </div>
+                    <h5 id="question1_answer">Respuesta</h5>    
+                </div>
+                <div class="question" id="question2">
+                    <p>¿Se podría acceder a todas las variables desde cualquier parte del código?</p>
+                    <div class="answer_buttons">
+                        <button type="button" id="question2_btn_true">Verdadero</button>
+                        <button type="button" id="question2_btn_false">Falso</button>
+                    </div>
+                    <h5 id="question2_answer">Respuesta</h5>    
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+    <script src="assets/show-code/prism.js"></script>
+    <script src="assets/script.js"></script>
+</body>
+</html>

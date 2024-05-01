@@ -54,7 +54,7 @@
                     </pre>
                 </div>
                 <div class="question" id="question1">
-                    <p>Según el código, ¿El acceso a cada variable es posible?</p>
+                    <p><b>Pregunta 1:</b><br>Según el código, ¿El acceso a cada variable es posible?</p>
                     <div class="answer_buttons">
                         <button type="button" id="question1_btn_true">Verdadero</button>
                         <button type="button" id="question1_btn_false">Falso</button>
@@ -62,7 +62,7 @@
                     <h5 id="question1_answer">Respuesta</h5>    
                 </div>
                 <div class="question" id="question2">
-                    <p>¿Se podría acceder a todas las variables desde cualquier parte del código?</p>
+                    <p><b>Pregunta 2:</b><br>¿Se podría acceder a todas las variables desde cualquier parte del código?</p>
                     <div class="answer_buttons">
                         <button type="button" id="question2_btn_true">Verdadero</button>
                         <button type="button" id="question2_btn_false">Falso</button>
@@ -70,48 +70,76 @@
                     <h5 id="question2_answer">Respuesta</h5>    
                 </div>
             </div>
-            <div class="challenge" id="challenge1">
-                <h3>Ejercicio 2: El quiz del Scope.</h3>
+            <div class="challenge" id="challenge2">
+                <h3>Ejercicio 2: Hoisting en Práctica.</h3>
                 <p>Considera el siguiente código:</p>
                 <div class="code" id="code_challenge1">
                     <pre>
                         <code class="language-js">
-    // Global Scope
-    var globalVariable = "Soy una variable global.";
-
-    function testScope() {
-    // Function Scope
-    var functionVariable = "Soy una variable local.";
-
-    if (true) {
-        // Block Scope
-        let blockVariable = "Soy una variable de bloque.";
-        console.log("Dentro del bloque:", blockVariable);
+    // vars call
+    console.log("Valor de a:", a);
+    console.log("Valor de b:", b);
+    console.log("Valor de c:", c);
+    
+    // functions call
+    console.log("Resultado de funcionDeclarada:", funcionDeclarada());
+    console.log("Resultado de funcionExpresada:", funcionExpresada());
+    
+    // vars declaration
+    var a = 1;
+    let b = 2;
+    const c = 3;
+    
+    // functions declarations
+    function funcionDeclarada() {
+        return "Función declarada ha sido llamada.";
     }
-
-    console.log("Dentro de la función:", functionVariable);
-    }
-
-    console.log("Fuera de la función:", globalVariable);
-    testScope();
+    
+    const funcionExpresada = function () {
+        return "Función expresada ha sido llamada.";
+    };
                         </code>
                     </pre>
                 </div>
-                <div class="question" id="question1">
-                    <p>Según el código, ¿El acceso a cada variable es posible?</p>
+                <div class="question" id="question3">
+                    <p><b>Pregunta 3:</b><br>¿La función console.log("Valor de a:",a) retornará "Valor de a:1"?</p>
                     <div class="answer_buttons">
-                        <button type="button" id="question1_btn_true">Verdadero</button>
-                        <button type="button" id="question1_btn_false">Falso</button>
+                        <button type="button" id="question3_btn_true">Verdadero</button>
+                        <button type="button" id="question3_btn_false">Falso</button>
                     </div>
-                    <h5 id="question1_answer">Respuesta</h5>    
+                    <h5 id="question3_answer">Respuesta</h5>    
                 </div>
-                <div class="question" id="question2">
-                    <p>¿Se podría acceder a todas las variables desde cualquier parte del código?</p>
+                <div class="question" id="question4">
+                    <p><b>Pregunta 4:</b><br>¿La función console.log("Valor de b:",b) retornará "Valor de b:2"?</p>
                     <div class="answer_buttons">
-                        <button type="button" id="question2_btn_true">Verdadero</button>
-                        <button type="button" id="question2_btn_false">Falso</button>
+                        <button type="button" id="question4_btn_true">Verdadero</button>
+                        <button type="button" id="question4_btn_false">Falso</button>
                     </div>
-                    <h5 id="question2_answer">Respuesta</h5>    
+                    <h5 id="question4_answer">Respuesta</h5>
+                </div>
+                <div class="question" id="question5">
+                    <p><b>Pregunta 5:</b><br>¿La función console.log("Valor de c:",c) retornará un error?</p>
+                    <div class="answer_buttons">
+                        <button type="button" id="question5_btn_true">Verdadero</button>
+                        <button type="button" id="question5_btn_false">Falso</button>
+                    </div>
+                    <h5 id="question5_answer">Respuesta</h5>
+                </div>
+                <div class="question" id="question6">
+                    <p><b>Pregunta 6:</b><br>¿La función console.log("Resultado de funcionDeclarada:",funcionDeclarada()), retornará un error?</p>
+                    <div class="answer_buttons">
+                        <button type="button" id="question6_btn_true">Verdadero</button>
+                        <button type="button" id="question6_btn_false">Falso</button>
+                    </div>
+                    <h5 id="question6_answer">Respuesta</h5>
+                </div>
+                <div class="question" id="question7">
+                    <p><b>Pregunta 7:</b><br>¿La función console.log("Resultado de funcionExpresada:",funcionExpresada()), retornará un error?</p>
+                    <div class="answer_buttons">
+                        <button type="button" id="question7_btn_true">Verdadero</button>
+                        <button type="button" id="question7_btn_false">Falso</button>
+                    </div>
+                    <h5 id="question7_answer">Respuesta</h5>
                 </div>
             </div>
         </section>

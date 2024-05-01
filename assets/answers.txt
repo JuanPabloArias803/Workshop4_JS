@@ -34,7 +34,7 @@ Seccion 1.
 
     ejercicio 2.
 
-        * ¿La función console.log("Valor de a:",a) retornará "Valor de a:1"?
+        *3 ¿La función console.log("Valor de a:",a) retornará "Valor de a:1"?
             True) Incorrecto... Debido al hoisting, las variables declaradas con la palabra
                 reservada var se "elevan" y son inicializadas con "undefined". Al accederla
                 antes de su declaración el resultado es "Valor de a: undefined".
@@ -42,7 +42,7 @@ Seccion 1.
                 reservada "var" y llamadas antes de su declaración son retornadas como
                 "undefined". El resultado es "Valor de a:undefined".
 
-        * ¿La función console.log("Valor de b:",b) retornará "Valor de b:2"?
+        *4 ¿La función console.log("Valor de b:",b) retornará "Valor de b:2"?
             True)Incorrecto... Debido al hoisting, las variables declaradas con la palabra 
                 reservada "let" también se "elevan" pero no son inicializadas sino que se 
                 mantienen en la temporal dead zone hasta su declaración. Al accederla antes
@@ -52,15 +52,37 @@ Seccion 1.
                 mantienen en la temporal dead zone hasta su declaración. Al accederla antes
                 de su declaración el resultado es un error provocado por la temporal dead zone.
 
-        *¿La función console.log("Valor de c:",c) retornará un error?
-            True)Correcto! Al igual que las variables declaradas con la palabra reservada let,
+        *5 ¿La función console.log("Valor de c:",c) retornará un error?
+            True)Correcto! Al igual que las variables declaradas con la palabra reservada "let",
+                las constantes declaradas con la palabra reservada const se "elevan" por el
+                hoisting pero se mantienen en la temporal dead zone hasta su declaración,
+                por lo que retorna un error si es accedida antes de su declaración.
+            False) Incorrecto... Al igual que las variables declaradas con la palabra reservada "let",
                 las constantes declaradas con la palabra reservada const se "elevan" por el
                 hoisting pero se mantienen en la temporal dead zone hasta su declaración,
                 por lo que retorna un error si es accedida antes de su declaración.
 
-            False) Incorrecto... Al igual que las variables declaradas con la palabra reservada let,
-                las constantes declaradas con la palabra reservada const se "elevan" por el
-                hoisting pero se mantienen en la temporal dead zone hasta su declaración,
-                por lo que retorna un error si es accedida antes de su declaración.
+        *6 ¿La función console.log("Resultado de funcionDeclarada:",funcionDeclarada()) 
+            retornará un error?
+            True)Incorrecto... Las funciones declaradas son aquellas que inician con la palabra
+                reservada "function" seguido del nombre que se le dará. Estás funciones son
+                "elevadas" por el hoisting y pueden ser ejecutadas antes de su declaración. En
+                este caso el console.log retornará "Resultado de funcionDeclarada:
+                Función declarada ha sido llamada."
+            False)Correcto! Las funciones declaradas son aquellas que inician con la palabra
+                reservada "function" seguido del nombre que se le dará. Estás funciones son
+                "elevadas" por el hoisting y pueden ser ejecutadas antes de su declaración. En
+                este caso el console.log retornará "Resultado de funcionDeclarada:
+                Función declarada ha sido llamada."
 
+        *7 ¿La función console.log("Resultado de funcionExpresada:",funcionExpresada())
+            retornará un error?
+            True)Correcto! Las funciones expresadas son aquellas que se almacenan dentro de la
+                palabra reservada "const". Al guardarse dentro de un const el hoisting las 
+                "eleva" y las coloca en la temporal dead zone por lo que al intentar ejecutarlas 
+                antes de su definición retornarán un error.
+            False)Incorrecto... Las funciones expresadas son aquellas que se almacenan dentro de la
+                palabra reservada "const". Al guardarse dentro de un const el hoisting las 
+                "eleva" y las coloca en la temporal dead zone por lo que al intentar ejecutarlas 
+                antes de su definición retornarán un error.
 

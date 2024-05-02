@@ -86,3 +86,53 @@ Seccion 1.
                 "eleva" y las coloca en la temporal dead zone por lo que al intentar ejecutarlas 
                 antes de su definición retornarán un error.
 
+Sección 2.
+
+    ejercicio 3
+
+        *8 Según el código, ¿La salida en consola de todas las ejecuciones del programa programa sería:?
+            1)Incorrecto... Aunque el closure permite a la función sumadorChild acceder siempre a la variable num de la función padre,
+                al instanciar dos ejecuciones diferentes del mismo padre se crean dos contextos de ejecución distintos, lo que hace
+                que en cada uno la variable num funcione de forma independiente.
+            2)Correcto! Aunque el closure permite a la función sumadorChild acceder siempre a la variable num de la función padre,
+                al instanciar dos ejecuciones diferentes del mismo padre se crean dos contextos de ejecución distintos, lo que hace
+                que en cada uno la variable num funcione de forma independiente.
+
+    ejercicio 4
+
+        *9 Según el código, ¿Si defino la constante flag en 'true'?
+            1.'La consola mostrará: 'Promesa fallida'
+            2.'¡Promesa cumplida y callback ejecutado!'
+            1)Correcto! Observa como en el operador terciario se define que la promesa retorne su valor resolve, se cumpla  y ejecute el callback 
+            cuando la constante flag sea falsy (!flag).
+            2)Incorrecto... Observa como en el operador terciario se define que la promesa retorne su valor resolve, se cumpla  y ejecute el callback 
+            cuando la constante flag sea falsy (!flag).
+
+    ejercicio 5
+
+        *10 Según el código, ¿El orden en que la consola muestra las ejecuciones será?:
+            1)Correcto! Recuerda que:
+                - Todo el código síncrono se ejecuta inmediatamente, por eso las funciones console.log() fuera de los setTimeOut son mostradas primero.
+                - El código asíncrono se divide en micro y macro tareas. Las funciones setTimeOut son consideradas macrotareas, por eso se envían a 
+                    la cola de tareas y son ejecutadas por orden de entrada una vez finaliza la ejecución de todo el código síncrono.
+            2)Incorrecto... Recuerda que:
+                - Todo el código síncrono se ejecuta inmediatamente, por eso las funciones console.log() fuera de los setTimeOut son mostradas primero.
+                - El código asíncrono se divide en micro y macro tareas. Las funciones setTimeOut son consideradas macrotareas, por eso se envían a 
+                    la cola de tareas y son ejecutadas por orden de entrada una vez finaliza la ejecución de todo el código síncrono.
+
+        *11 Según el código, ¿El orden en que la consola muestra las ejecuciones será?:
+            1) Incorrecto... Recuerda que:
+                - Todo el código síncrono se ejecuta en primer lugar, las funciones console.log() son las primeras en ser ejecutadas.
+                - Las macrotareas como los setTimeout entran en la cola de macrotareas para esperar a ser ejecutadas en orden de entrada.
+                - Las promesas son consideradas microtareas, las microtareas entran en una cola aparte de microtareas. Está cola de microtareas se
+                    ejecuta tambien en orden de entrada pero antes de la cola de macrotareas.
+            2) Correcto! Recuerda que:
+                - Todo el código síncrono se ejecuta en primer lugar, las funciones console.log() son las primeras en ser ejecutadas.
+                - Las macrotareas como los setTimeout entran en la cola de macrotareas para esperar a ser ejecutadas en orden de entrada.
+                - Las promesas son consideradas microtareas, las microtareas entran en una cola aparte de microtareas. Está cola de microtareas se
+                    ejecuta tambien en orden de entrada pero antes de la cola de macrotareas.
+
+        *12 Según el código, ¿El orden en que la consola muestra las ejecuciones será?:
+            1) Incorrecto... Debes mejorar tu comprensión del Event Loop para dominar mejor el lenguaje.
+            2) Correcto! Tienes una comprensión muy buena del Event Loop, felicitaciones!
+

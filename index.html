@@ -8,9 +8,11 @@
     <title>JS Test</title>
 </head>
 <body>
+    <div class="scoreboard">
+        <h2>Aciertos: <span id="correctChoices">0</span>/<span id="totalChoices">0</span></h2>
+    </div>
     <header>
         <h1>Test de fundamentos avanzados JS</h1>
-        <h2>Aciertos: <span id="scoreboard">0</span>/10</h2>
         <p>Esta web está diseñada para aplicar y profundizar los conceptos avanzados de JavaScript.</p>
         <h3>Objetivos:</h3>
         <ul>
@@ -32,29 +34,25 @@
                 <div class="code" id="code_challenge1">
                     <pre>
                         <code class="language-js">
-    // Global Scope
-    var globalVariable = "Soy una variable global.";
-
-    function testScope() {
-    // Function Scope
-    var functionVariable = "Soy una variable local.";
-
-    if (true) {
-        // Block Scope
-        let blockVariable = "Soy una variable de bloque.";
-        console.log("Dentro del bloque:", blockVariable);
-    }
-
-    console.log("Dentro de la función:", functionVariable);
-    }
-
-    console.log("Fuera de la función:", globalVariable);
-    testScope();
+// Global Scope
+var globalVariable = "Soy una variable global.";
+function testScope() {
+// Function Scope
+var functionVariable = "Soy una variable local.";
+if (true) {
+    // Block Scope
+    let blockVariable = "Soy una variable de bloque.";
+    console.log("Dentro del bloque:", blockVariable);
+}
+console.log("Dentro de la función:", functionVariable);
+}
+console.log("Fuera de la función:", globalVariable);
+testScope();
                         </code>
                     </pre>
                 </div>
                 <div class="question" id="question1">
-                    <p><b>Pregunta 1:</b><br>Según el código, ¿El acceso a cada variable es posible?</p>
+                    <p><b>Pregunta 1:</b><br>Según el código, ¿El llamado de cada variable se ejecutará sin errores?</p>
                     <div class="answer_buttons">
                         <button type="button" id="question1_btn_true">Verdadero</button>
                         <button type="button" id="question1_btn_false">Falso</button>
@@ -76,28 +74,24 @@
                 <div class="code" id="code_challenge1">
                     <pre>
                         <code class="language-js">
-    // vars call
-    console.log("Valor de a:", a);
-    console.log("Valor de b:", b);
-    console.log("Valor de c:", c);
-    
-    // functions call
-    console.log("Resultado de funcionDeclarada:", funcionDeclarada());
-    console.log("Resultado de funcionExpresada:", funcionExpresada());
-    
-    // vars declaration
-    var a = 1;
-    let b = 2;
-    const c = 3;
-    
-    // functions declarations
-    function funcionDeclarada() {
-        return "Función declarada ha sido llamada.";
-    }
-    
-    const funcionExpresada = function () {
-        return "Función expresada ha sido llamada.";
-    };
+// vars call
+console.log("Valor de a:", a);
+console.log("Valor de b:", b);
+console.log("Valor de c:", c);
+// functions call
+console.log("Resultado de funcionDeclarada:", funcionDeclarada());
+console.log("Resultado de funcionExpresada:", funcionExpresada());
+// vars declaration
+var a = 1;
+let b = 2;
+const c = 3;
+// functions declarations
+function funcionDeclarada() {
+    return "Función declarada ha sido llamada.";
+}
+const funcionExpresada = function () {
+    return "Función expresada ha sido llamada.";
+};
                         </code>
                     </pre>
                 </div>
@@ -143,6 +137,323 @@
                 </div>
             </div>
         </section>
+        <section class="section2">
+            <h2>Sección 2: Funciones, Closures y Asincronía.</h2>
+            <h3>Objetivo:</h3>
+            <p>Explorar la diferencia entre funciones declaradas y expresadas, manejar asincronía mediante el uso de callbacks y promesas, y comprender el funcionamiento del event loop.</p>
+            <div class="challenge" id="challenge3">
+                <h3>Ejercicio 3: Closures en Acción.</h3>
+                <p>Considera el siguiente código:</p>
+                <div class="code">
+                    <pre>
+                        <code class="language-js">
+const crearSumador= num => {
+    const sumadorChild = () => {
+        num++;
+        console.log(num);
+    }
+    return sumadorChild;
+}
+const context1=crearSumador(0);
+const context2=crearSumador(0);
+context1();
+context1();
+context1();
+context2();
+context1();
+                        </code>
+                    </pre>
+                </div>
+                <div class="question" id="question8">
+                    <p><b>Pregunta 8:</b><br>Según el código, ¿La salida en consola de todas las ejecuciones del programa programa sería:?</p>
+                    <div class="question8_options">
+                        <div class="option_code">
+                            <pre>
+                                <code class="language-js">
+//1
+1
+2
+3
+4
+5
+                                </code>
+                            </pre>
+                        </div>
+                        <div class="option_code">
+                            <pre>
+                                <code class="language-js">
+//2
+1
+2
+3
+1
+4
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="answer_buttons">
+                        <button type="button" id="question8_btn_1">1</button>
+                        <button type="button" id="question8_btn_2">2</button>
+                    </div>
+                    <h5 id="question8_answer">Respuesta</h5>    
+                </div>
+            </div>
+            <div class="challenge" id="challenge4">
+                <h3>Ejercicio 4: Promesas y Callbacks en Acción.</h3>
+                <p>Considera el siguiente código:</p>
+                <div class="code" id="code_challenge4">
+                    <pre>
+                        <code class="language-js">
+const principalFunction=(callback)=>{
+    const flag=?????;
+    return new Promise((resolve,reject)=>{
+        !flag?resolve(callback()):reject("Promesa fallida");
+    });
+    }
+    
+    const function1=()=>"¡Promesa cumplida y callback ejecutado!";
+    
+    principalFunction(function1)
+    .then(message=>console.log(message))
+    .catch(message=>console.log(message));
+                        </code>
+                    </pre>
+                </div>
+                <div class="question" id="question9">
+                    <p><b>Pregunta 9:</b><br>Según el código, si defino la constante 'flag' en 'true' la consola mostrará:<br>1) 'Promesa fallida'.<br>2) '¡Promesa cumplida y callback ejecutado!'.</p>
+                    <div class="answer_buttons">
+                        <button type="button" id="question9_btn_1">1</button>
+                        <button type="button" id="question9_btn_2">2</button>
+                    </div>
+                    <h5 id="question9_answer">Respuesta</h5>    
+                </div>
+            </div>
+            <div class="challenge" id="challenge5">
+                <h3>Ejercicio 5: Entendiendo el Event Loop a profundidad.</h3>
+                <p>Considera el siguiente código:</p>
+                <div class="code">
+                    <pre>
+                        <code class="language-js">
+console.log("Mensaje 1: Inmediatamente");
+setTimeout(()=>console.log("Mensaje 2: Con timeout de 0 segundos"),0);
+setTimeout(()=>console.log("Mensaje 3: Con timeout de 1 segundos"),1000);
+console.log("Mensaje 4: Al final del script");
+                        </code>
+                    </pre>
+                </div>
+                <div class="question" id="question10">
+                    <p><b>Pregunta 10:</b><br>Según el código, ¿El orden en que la consola mostrará las ejecuciones será:?</p>
+                    <div class="question10_options">
+                        <div class="option_code">
+                            <pre>
+                                <code class="language-js">
+//1
+Mensaje1: Inmediatamente
+Mensaje4: Al final del script
+Mensaje2: Con timeout de 0 segundos
+Mensaje3: Con timeout de 1 segundos
+                                </code>
+                            </pre>
+                        </div>
+                        <div class="option_code">
+                            <pre>
+                                <code class="language-js">
+//2
+Mensaje1: Inmediatamente
+Mensaje2: Con timeout de 0 segundos
+Mensaje3: Con timeout de 1 segundos
+Mensaje4: Al final del script
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="answer_buttons">
+                        <button type="button" id="question10_btn_1">1</button>
+                        <button type="button" id="question10_btn_2">2</button>
+                    </div>
+                    <h5 id="question10_answer">Respuesta</h5>    
+                </div>
+                <p>Considera el siguiente código:</p>
+                <div class="code">
+                    <pre>
+                        <code class="language-js">
+console.log("Inicio del script");
+setTimeout(() => {
+    console.log("Primer setTimeout");
+}, 0);
+setTimeout(() => {
+    console.log("Segundo setTimeout");
+}, 0);
+Promise.resolve("Promesa resuelta").then(console.log);
+console.log("Fin del script");
+                        </code>
+                    </pre>
+                </div>
+                <div class="question" id="question11">
+                    <p><b>Pregunta 11:</b><br>Según el código, ¿El orden en que la consola mostrará las ejecuciones será:?</p>
+                    <div class="question11_options">
+                        <div class="option_code">
+                            <pre>
+                                <code class="language-js">
+//1
+Inicio del script
+Fin del script
+Primer setTimeout
+Segundo setTimeout
+Promesa resuelta
+                                </code>
+                            </pre>
+                        </div>
+                        <div class="option_code">
+                            <pre>
+                                <code class="language-js">
+//2
+Inicio del script
+Fin del script
+Promesa resuelta
+Primer setTimeout
+Segundo setTimeout
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="answer_buttons">
+                        <button type="button" id="question11_btn_1">1</button>
+                        <button type="button" id="question11_btn_2">2</button>
+                    </div>
+                    <h5 id="question11_answer">Respuesta</h5>    
+                </div>
+                <p>Considera el siguiente código:</p>
+                <div class="code">
+                    <pre>
+                        <code class="language-js">
+console.log("Inicio del script");
+// Macrotarea: setTimeout
+setTimeout(() => {
+    console.log("Macrotarea 1 second (setTimeout)");
+}, 1000);
+setTimeout(() => {
+    console.log("Macrotarea 0 seconds (setTimeout)");
+}, 0);
+// Microtarea: Promesa
+Promise.resolve()
+    .then(() => {
+    setTimeout(() => {
+        console.log("Macrotarea (setTimeout) inside Microtarea 1");
+        return "from micro 1";
+    }, 0);
+    })
+    .then((message) => {
+    console.log("Microtarea 2 (Promesa)");
+    });
+// Microtarea: Promesa
+Promise.resolve()
+    .then(() => {
+    console.log("Microtarea 3 (Promesa)");
+    })
+    .then(() => {
+    console.log("Microtarea 4 (Promesa)");
+    });
+console.log("Fin del script");
+                        </code>
+                    </pre>
+                </div>
+                <div class="question" id="question12">
+                    <p><b>Pregunta 12:</b><br>Según el código, ¿El orden en que la consola mostrará las ejecuciones será:?</p>
+                    <div class="question12_options">
+                        <div class="option_code">
+                            <pre>
+                                <code class="language-js">
+//1
+Inicio del script
+Fin del script
+Microtarea 2 (Promesa)
+Microtarea 3 (Promesa)
+Microtarea 4 (Promesa)
+Macrotarea (setTimeout) inside Microtarea 1
+Macrotarea 0 seconds (setTimeout)
+Macrotarea 1 second (setTimeout)
+                                </code>
+                            </pre>
+                        </div>
+                        <div class="option_code">
+                            <pre>
+                                <code class="language-js">
+//2
+Inicio del script
+Fin del script
+Microtarea 3 (Promesa)
+Microtarea 2 (Promesa)
+Microtarea 4 (Promesa)
+Macrotarea 0 seconds (setTimeout)
+Macrotarea (setTimeout) inside Microtarea 1
+Macrotarea 1 second (setTimeout)
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="answer_buttons">
+                        <button type="button" id="question12_btn_1">1</button>
+                        <button type="button" id="question12_btn_2">2</button>
+                    </div>
+                    <h5 id="question12_answer">Respuesta</h5>    
+                </div>
+            </div>
+            <p>Puedes seguir practicando tus habilidades de Event Loop en la página <a href="https://www.jsv9000.app/">JavaScript Visualizer 9000</a></p>
+        </section>
+        <section class="section3">
+            <h2>Sección 3: Dominando las Web APIs con Promesas y Fetch.</h2>
+            <h3>Objetivo:</h3>
+            <p>Entender el funcionamiento de las Web APIs en JavaScript.</p>
+            <div class="challenge" id="challenge6">
+                <h3>Ejercicio 6: Usando Fetch para realizar peticiones HTPP.</h3>
+                <div class="question" id="question13">
+                    <p><b>Pregunta 13:</b><br>Interactua con la siguiente interfaz:</p>
+                    <form id="fetch_form">
+                        <label for="id_input">Ingresa el ID del usuario que deseas consultar:</label>
+                        <input id="id_input" type="number" maxlength="2" value="1">
+                        <button id="fetch_btn" type="button">Consultar</button>
+                    </form>
+                    <h4 id="fetch_response"></h4>
+                    <div id="question13_explain">
+                        <p>Tu también puedes usar facilmente una API con la función Fetch, de la siguiente manera:</p>
+                        <div class="html_code">
+                            <pre>
+                                <code class="language-html">
+&lt;!==HTML code==&gt;
+&lt;form id=&quot;fetch_form&quot;&gt;
+    &lt;label for=&quot;id_input&quot;&gt;Ingresa el ID del usuario que deseas consultar:&lt;/label&gt;
+    &lt;input id=&quot;id_input&quot; type=&quot;number&quot; maxlength=&quot;2&quot; value=&quot;1&quot;&gt;
+    &lt;button id=&quot;fetch_btn&quot; type=&quot;button&quot;&gt;Consultar&lt;/button&gt;
+&lt;/form&gt;
+&lt;p id=&quot;fetch_response&quot;&gt;&lt;/p&gt;
+                                </code>
+                            </pre>
+                        </div>
+                        <div class="js_code">
+                            <pre>
+                                <code class="language-js">
+//JavaScript code
+const question13_fetch_btn=document.querySelector("#fetch_btn");
+const question13_fetch_response=document.querySelector("#fetch_response");
+const interactApi=()=>{
+    let id=document.getElementById("id_input").value;
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(json => {
+        let {name,email,address}=json[id]
+        question13_fetch_response.innerHTML=`${name} vive en ${address.city} y su email es ${email}`
+        })
+        .catch(()=>question13_fetch_response.innerHTML=`No se encontraron usuarios con ese ID`)
+}
+question13_fetch_btn.addEventListener("click",interactApi)
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </main>
     <footer></footer>
     <script src="assets/show-code/prism.js"></script>
